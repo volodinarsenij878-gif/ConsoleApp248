@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program89
+{
+    internal class Program
+    {
+        static void Main()
+        {
+            Console.Write("Введите количество шагов за день: ");
+            if (int.TryParse(Console.ReadLine(), out int steps) && steps >= 0)
+            {
+                string status;
+                if (steps < 5000)
+                {
+                    status = "гиподинамия";
+                }
+                else if (steps < 10000)
+                {
+                    status = "норма";
+                }
+                else if (steps < 15000)
+                {
+                    status = "активный день";
+                }
+                else
+                {
+                    status = "рекорд";
+                }
+
+                Console.WriteLine($"Статус: {status} (шаги: {steps})");
+            }
+            else
+            {
+                Console.WriteLine("Ошибка: шаги должны быть неотрицательным целым числом.");
+            }
+        }
+    }
+}
